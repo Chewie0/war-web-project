@@ -2,6 +2,7 @@ pipeline {
   agent {
     docker {
       image 'chewie5/test:latest'
+      args '--privileged -v /var/run/docker.sock:/var/run/docker.sock'
     }
   }
   stages {
