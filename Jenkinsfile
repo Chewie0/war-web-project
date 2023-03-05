@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'chewie5/test:latest'
+      image 'chewie5/build-container:tagname'
       args '--privileged -v /var/run/docker.sock:/var/run/docker.sock'
     }
   }
