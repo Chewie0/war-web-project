@@ -19,7 +19,6 @@ pipeline {
     }
    stage('Make docker image') {
       steps {
-        sh 'groupadd docker'
         sh 'usermod -aG docker ${USER}'
         sh 'docker build -t war-web -f Dockerfile .'
         sh 'docker tag war-web:latest  chewie5/war-web:latest'
