@@ -22,6 +22,7 @@ pipeline {
         sh 'ls target/'
         sh 'pwd'
         sh 'docker build -t war-web -f Dockerfile .'
+        sh 'docker exec -it war-web'
         sh 'docker cp /var/lib/jenkins/workspace/pipe/target/wwp-1.0.0.war war-web:$HOME/webapps/'
         sh 'docker tag war-web:latest  chewie5/war-web:latest'
         withDockerRegistry([credentialsId: '048d1aca-3603-4465-ab6a-bdae46a76374', url:""]) {
