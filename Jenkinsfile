@@ -19,6 +19,7 @@ pipeline {
     }
    stage('Make docker image') {
       steps {
+        sh 'pwd'
         sh 'docker create -t war-web -f Dockerfile .'
         sh 'docker cp /target/wwp-1.0.0.war war-web:/usr/local/tomcat/webapps'
         sh 'docker tag war-web:latest  chewie5/war-web:latest'
