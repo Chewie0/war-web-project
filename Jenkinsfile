@@ -19,8 +19,8 @@ pipeline {
     }
    stage('Make docker image') {
       steps {
-        sh 'sudo groupadd docker'
-        sh 'sudo usermod -aG docker ${USER}'
+        sh 'groupadd docker'
+        sh 'usermod -aG docker ${USER}'
         sh 'docker build -t war-web -f Dockerfile .'
         sh 'docker tag war-web:latest  chewie5/war-web:latest'
         withDockerRegistry([credentialsId: '048d1aca-3603-4465-ab6a-bdae46a76374', url:""]) {
